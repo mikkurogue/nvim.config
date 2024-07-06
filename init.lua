@@ -113,6 +113,8 @@ require('neo-tree').setup({
   close_if_last_window = false, -- Keep Neo-tree open
   filesystem = {
     follow_current_file = true, -- Automatically open the tree when entering a new buffer
+    visible = true,
+    hide_dotfiles = false,
   },
   window = {
     width = 40,
