@@ -38,6 +38,28 @@ require('lazy').setup({
   'hrsh7th/cmp-cmdline', -- Cmdline source for nvim-cmp
   'L3MON4D3/LuaSnip', -- Snippet engine
   'saadparwaiz1/cmp_luasnip', -- Snippet source for nvim-cmp
+  "nvim-lua/plenary.nvim",
+  {
+    'jose-elias-alvarez/null-ls.nvim',
+    dependencies = {'nvim-lua/plenary.nvim'},
+    config = function()
+      local null_ls = require('null-ls')
+      null_ls.setup({
+        sources = {
+          null_ls.builtins.formatting.prettier,
+        },
+      })
+    end,
+  },
+  -- nvim-autopairs for auto-completing brackets
+  {
+    'windwp/nvim-autopairs',
+    config = function()
+      require('nvim-autopairs').setup({
+        -- Your custom configuration here, if needed
+      })
+    end,
+  },
   {
     'junegunn/fzf',
     build = ':call fzf#install()',
@@ -50,6 +72,36 @@ require('lazy').setup({
     "nvim-telescope/telescope-file-browser.nvim",
     dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
   },
+  {
+    "DreamMaoMao/yazi.nvim",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim",
+    },
+  
+    keys = {
+      { "<leader>gy", "<cmd>Yazi<CR>", desc = "Toggle Yazi" },
+    },
+  },
+  {
+    "kdheepak/lazygit.nvim",
+    cmd = {
+      "LazyGit",
+      "LazyGitConfig",
+      "LazyGitCurrentFile",
+      "LazyGitFilter",
+      "LazyGitFilterCurrentFile",
+    },
+    -- optional for floating window border decoration
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    -- setting the keybinding for LazyGit with 'keys' is recommended in
+    -- order to load the plugin when the command is run for the first time
+    keys = {
+      { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" }
+    }
+  }
 
 })
 
