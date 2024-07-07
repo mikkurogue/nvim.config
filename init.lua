@@ -441,7 +441,7 @@ lspconfig.gopls.setup({
 --   capabilities = capabilities,
 --   settings = {},
 -- }
-
+require("mini.move").setup()
 -- Configure Neo-tree
 require("neo-tree").setup({
 	-- Neo-tree configuration
