@@ -23,6 +23,12 @@ require("lazy").setup({
 	-- Add rose-pine theme
 	{ "rose-pine/neovim", name = "rose-pine" },
 	{ "echasnovski/mini.nvim", version = false },
+	{
+		"olrtg/nvim-emmet",
+		config = function()
+			vim.keymap.set({ "n", "v" }, "<leader>xe", require("nvim-emmet").wrap_with_abbreviation)
+		end,
+	},
 	-- Add Neo-tree and its dependencies
 	{
 		"nvim-neo-tree/neo-tree.nvim",
