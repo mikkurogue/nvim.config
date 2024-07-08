@@ -420,9 +420,40 @@ cmp.setup({
 	}),
 })
 
+local handlers = {
+	['textDocument/publishDiagnostics'] = vim.lsp.with(
+	  vim.lsp.diagnostic.on_publish_diagnostics, {
+		update_in_insert = true,
+	  }
+	),
+  }
+
+-- Set up LSP servers
+lspconfig.gopls.setup({
+	capabilities = capabilities,
+	settings = {
+		hints = {
+			assignVariableTypes = true,
+			compositeLiteralFields = true,
+			compositeLiteralTypes = true,
+			constantValues = true,
+			functionTypeParameters = true,
+			parameterNames = true,
+			rangeVariableTypes = true,
+		},
+	},
+	handlers = handlers,
+})
+
+lspconfig.tsserver.setup({
+	capabilities = capabilities,
+	handlers = handlers,
+})
+
 -- Set up lspconfig.
 lspconfig.rust_analyzer.setup({
 	capabilities = capabilities,
+	handlers = handlers,
 	settings = {
 		["rust-analyzer"] = {},
 	},
@@ -462,21 +493,6 @@ lspconfig.emmet_language_server.setup({
 		syntaxProfiles = {},
 		--- @type table<string, string> [Emmet Docs](https://docs.emmet.io/customization/snippets/#variables)
 		variables = {},
-	},
-})
-
-lspconfig.gopls.setup({
-	capabilities = capabilities,
-	settings = {
-		hints = {
-			assignVariableTypes = true,
-			compositeLiteralFields = true,
-			compositeLiteralTypes = true,
-			constantValues = true,
-			functionTypeParameters = true,
-			parameterNames = true,
-			rangeVariableTypes = true,
-		},
 	},
 })
 
