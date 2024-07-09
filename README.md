@@ -22,3 +22,32 @@ For powershell.exe:
 - Rust analyzer (rustup)
 - TSServer (vstls coming soon hopefully if im not too lazy) (npm i -g typescript-language-server)
 - gopls (make sure go is in PATH)
+
+
+## nvim master mind giga cheet sheet for this config:
+
+### Normal mode:
+- `<space> ca` - open code actions
+- `i` enter edit mode
+- `v` enter visual mode
+- `h,j,k,l` traverse the buffer (arrow keys work too)
+- `w` move forward to next token start (usually next start of word)
+- `b` move backward to previous end token (usually end of previous word)
+- `ctrl ww` move from window to window (like neotree to buffer, or buffer to neotree)
+- `ctrl wv` create a window vertically with the current buffer
+-  `:w!` write file (without ! its just write file without forcing it)
+-  `:q!` quit buffer/window (without ! its just quit without forcing it)
+-  `:Neotree toggle` nvim script command to toggle the tree
+-  `:Fzf buffers` fuzzy find through all open buffers/files
+-  `:Fzf files` fuzzy find through all files in directory
+-  `shift a [A]` in neotree, this adds file or directory in current position of neotree cursor
+-  `dd` delete line in buffer
+-  `d` delete dir/file in neotree at position of cursor
+-  `p` paste from nvim clipboard (see `y` in visual mode)
+-  `:! <shell command>` runs a shell command from the nvim command line
+
+### Visual mode
+-  `h,j,k,l` (or arrow keys) to select text in file
+-  `d` delete selection
+-  `y` yank to clipboard (not to system clipboard to nvim clipboard, its a bit confusing at first)
+-  (more coming soon im still learning vim)
