@@ -51,3 +51,6 @@ For powershell.exe:
 -  `d` delete selection
 -  `y` yank to clipboard (not to system clipboard to nvim clipboard, its a bit confusing at first)
 -  (more coming soon im still learning vim)
+
+
+![image](https://github.com/mikkurogue/tmux.config/assets/5637842/7f0413cb-4530-4496-b025-9ebbb0c04e7d)
