@@ -449,8 +449,36 @@ lspconfig.tsserver.setup({
 lspconfig.rust_analyzer.setup({
 	capabilities = capabilities,
 	handlers = handlers,
+	on_attach = function(client, bufnr)
+		-- Keybindings and other setup for Rust Analyzer can go here
+		-- Example keybinding setup
+		local opts = { noremap = true, silent = true }
+		local keymap = vim.api.nvim_buf_set_keymap
+		keymap(bufnr, "n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
+		keymap(bufnr, "n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
+		keymap(bufnr, "n", "gi", "<Cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+		keymap(bufnr, "n", "<C-k>", "<Cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+		keymap(bufnr, "n", "<leader>wa", "<Cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
+		keymap(bufnr, "n", "<leader>wr", "<Cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", opts)
+		keymap(bufnr, "n", "<leader>wl", "<Cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", opts)
+		keymap(bufnr, "n", "<leader>D", "<Cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
+		keymap(bufnr, "n", "<leader>rn", "<Cmd>lua vim.lsp.buf.rename()<CR>", opts)
+		keymap(bufnr, "n", "gr", "<Cmd>lua vim.lsp.buf.references()<CR>", opts)
+		keymap(bufnr, "n", "<leader>ca", "<Cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+		keymap(bufnr, "n", "<leader>e", "<Cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
+		keymap(bufnr, "n", "[d", "<Cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
+		keymap(bufnr, "n", "]d", "<Cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
+		keymap(bufnr, "n", "<leader>q", "<Cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
+	end,
 	settings = {
-		["rust-analyzer"] = {},
+		["rust-analyzer"] = {
+			cargo = {
+				allFeatures = true,
+			},
+			checkOnSave = {
+				command = "clippy",
+			},
+		},
 	},
 })
 
