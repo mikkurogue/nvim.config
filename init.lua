@@ -445,6 +445,13 @@ lspconfig.tsserver.setup({
 	},
 })
 
+-- setup lsp for c++
+lspconfig.clangd.setup({
+	cmd = { "clangd", "--background-index" },
+	filetypes = { "c", "cpp", "obj", "objcpp" },
+	root_dir = lspconfig.util.root_pattern(".git", "compile_commands.json", "compile_flags.txt"),
+})
+
 -- Set up lspconfig.
 lspconfig.rust_analyzer.setup({
 	capabilities = capabilities,
