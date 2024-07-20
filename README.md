@@ -5,8 +5,8 @@ Mac/Linux:
 `git clone https://github.com/mikkurogue/nvim.config.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim`
 
 Fish terminal on unix systems:
-`<set -l config_home (set -q XDG_CONFIG_HOME; and echo $XDG_CONFIG_HOME; or echo $HOME/.config)
-git clone https://github.com/mikkurogue/nvim.config.git "$config_home/nvim"
+`set -Ux XDG_CONFIG_HOME $HOME/.config
+git clone https://github.com/mikkurogue/nvim.config.git $XDG_CONFIG_HOME/nvim
 `
 
 Windows:
