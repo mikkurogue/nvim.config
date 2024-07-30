@@ -62,6 +62,7 @@ require("lazy").setup({
 			require("nvim-treesitter.configs").setup(opts)
 		end,
 	},
+	{ "luckasRanarison/tailwind-tools.nvim" },
 	{
 		"mg979/vim-visual-multi",
 	},
