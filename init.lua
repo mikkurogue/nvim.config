@@ -64,6 +64,13 @@ require("lazy").setup({
 	},
 	{ "luckasRanarison/tailwind-tools.nvim" },
 	{
+		"folke/todo-comments.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		opts = {
+			-- options here...
+		},
+	},
+	{
 		"mg979/vim-visual-multi",
 	},
 	{ -- Adds git related signs to the gutter, as well as utilities for managing changes
