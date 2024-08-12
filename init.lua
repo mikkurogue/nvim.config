@@ -18,6 +18,9 @@ vim.opt.expandtab = true -- Use spaces instead of tabs
 
 vim.g.mapleader = " "
 
+vim.api.nvim_set_keymap("n", "F", ":Fzf files<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "B", ":Fzf buffers<CR>", { noremap = true, silent = true })
+
 -- Setup lazy.nvim and install plugins
 require("lazy").setup({
 	-- Add rose-pine theme
