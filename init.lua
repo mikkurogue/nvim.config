@@ -22,6 +22,11 @@ vim.g.mapleader = " "
 require("lazy").setup({
 	-- Add rose-pine theme
 	{ "rose-pine/neovim", name = "rose-pine" },
+	{
+		"echasnovski/mini.hipatterns",
+		event = "BufReadPre",
+		opts = {},
+	},
 	{ "echasnovski/mini.nvim", version = false },
 	{
 		"olrtg/nvim-emmet",
@@ -225,6 +230,14 @@ require("lazy").setup({
 	"hrsh7th/cmp-cmdline", -- Cmdline source for nvim-cmp
 	"L3MON4D3/LuaSnip", -- Snippet engine
 	"saadparwaiz1/cmp_luasnip", -- Snippet source for nvim-cmp
+	{
+		"rcarriga/nvim-notify",
+		opts = {
+			timeout = 3000,
+			background_color = "#000000",
+			render = "wrapped-compact",
+		},
+	},
 	"nvim-lua/plenary.nvim",
 	{
 		"jose-elias-alvarez/null-ls.nvim",
@@ -553,7 +566,7 @@ require("neo-tree").setup({
 		},
 	},
 	window = {
-		width = 40,
+		width = 30,
 		position = "left",
 		mappings = {
 			["<space>"] = "none", -- Disable space keybinding
