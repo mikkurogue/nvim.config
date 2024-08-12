@@ -52,6 +52,8 @@ For powershell.exe:
 - `:! <shell command>` runs a shell command from the nvim command line
 - `ctrl arrow-up` / `ctrl arrow-down` create a new cursor up or down a line on the same column.
 - `:<any number>` jump to the line number in the current buffer
+- `shift f [F]` - fuzzy find files
+- `shift b [B]` - fuzzy find buffers
 
 ### Visual mode
 
