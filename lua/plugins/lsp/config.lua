@@ -30,7 +30,7 @@ local handlers = {
 	}),
 }
 
--- Set up LSP servers
+-- go lsp
 lspconfig.gopls.setup({
 	capabilities = capabilities,
 	settings = {
@@ -56,6 +56,7 @@ local function organise_imports()
 	vim.lsp.buf.execute_command(params)
 end
 
+-- typescript server
 lspconfig.tsserver.setup({
 	on_attach = function(client, bufnr)
 		-- Enable completion triggered by <c-x><c-o>
@@ -82,11 +83,6 @@ lspconfig.tsserver.setup({
 				vim.lsp.buf.execute_command(params)
 			end,
 		})
-
-		-- Other LSP mappings and settings...
-		-- buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-		-- buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-		-- Add other key mappings as needed
 	end,
 	capabilities = capabilities,
 	handlers = handlers,
@@ -103,14 +99,19 @@ lspconfig.tsserver.setup({
 	},
 })
 
--- setup lsp for c++
+-- setup tailwind lsp
+lspconfig.tailwindcss.setup({
+	cmd = { "tailwindcss-language-server", "--stdio" }
+})
+
+-- setup lsp for c/c++
 lspconfig.clangd.setup({
 	cmd = { "clangd", "--background-index" },
 	filetypes = { "c", "cpp", "obj", "objcpp" },
 	root_dir = lspconfig.util.root_pattern(".git", "compile_commands.json", "compile_flags.txt"),
 })
 
--- Set up lspconfig.
+-- Set up lspconfig rust
 lspconfig.rust_analyzer.setup({
 	capabilities = capabilities,
 	handlers = handlers,
