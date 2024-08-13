@@ -1,18 +1,21 @@
 return {
-  {
-    "stevearc/conform.nvim",
-    -- event = 'BufWritePre', -- uncomment for format on save
-    opts = require "configs.conform",
-  },
-
-  -- These are some examples, uncomment them if you want to see them work!
-  {
+	{
+		"stevearc/conform.nvim",
+		event = "BufWritePre", -- uncomment for format on save
+		opts = require("configs.conform"),
+	},
+	{
+		"BurntSushi/ripgrep",
+		lazy = false,
+	},
+	-- These are some examples, uncomment them if you want to see them work!
+	{
 		"mg979/vim-visual-multi",
-    lazy = false
+		lazy = false,
 	},
 	{
 		"folke/todo-comments.nvim",
-    lazy = false,
+		lazy = false,
 		dependencies = { "nvim-lua/plenary.nvim" },
 		opts = {
 			-- options here...
@@ -20,7 +23,7 @@ return {
 	},
 	{ -- Adds git related signs to the gutter, as well as utilities for managing changes
 		"lewis6991/gitsigns.nvim",
-    lazy = false,
+		lazy = false,
 		opts = {
 			signs = {
 				add = { text = "+" },
@@ -33,7 +36,7 @@ return {
 	},
 	{
 		"f-person/git-blame.nvim",
-    lazy = false,
+		lazy = false,
 		-- load the plugin at startup
 		event = "VeryLazy",
 		-- Because of the keys part, you will be lazy loading this plugin.
@@ -50,13 +53,13 @@ return {
 			message_when_not_committed = "",
 		},
 	},
-  -- {
-  -- 	"nvim-treesitter/nvim-treesitter",
-  -- 	opts = {
-  -- 		ensure_installed = {
-  -- 			"vim", "lua", "vimdoc",
-  --      "html", "css"
-  -- 		},
-  -- 	},
-  -- },
+	-- {
+	-- 	"nvim-treesitter/nvim-treesitter",
+	-- 	opts = {
+	-- 		ensure_installed = {
+	-- 			"vim", "lua", "vimdoc",
+	--      "html", "css"
+	-- 		},
+	-- 	},
+	-- },
 }
