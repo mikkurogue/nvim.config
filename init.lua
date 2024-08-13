@@ -15,23 +15,19 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-
-
 -- Setup lazy.nvim and install plugins
 require("lazy").setup({
 	spec = {
 		{
-			import = "plugins"
-		}
-	}
+			import = "plugins",
+		},
+	},
 })
 
 -- Set the colorscheme
 vim.cmd("colorscheme rose-pine")
 
-
 require("plugins.lsp.config")
-
 
 -- lspconfig.vtsls.setup{
 --   capabilities = capabilities,
@@ -41,10 +37,10 @@ require("mini.move").setup()
 -- Configure Neo-tree
 require("neo-tree").setup({
 	-- Neo-tree configuration
-	close_if_last_window = false, -- Keep Neo-tree open
+	close_if_last_window = true,
 	filesystem = {
 		follow_current_file = true, -- Automatically open the tree when entering a new buffer
-		visible = true,
+		visible = false,
 		filtered_items = {
 			visible = true,
 			show_hidden_count = true,

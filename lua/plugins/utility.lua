@@ -1,28 +1,31 @@
 return {
-	{'romgrk/barbar.nvim',
-    dependencies = {
-      'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
-      'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
-    },
-    init = function() vim.g.barbar_auto_setup = false end,
-    opts = {
-      -- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
-      -- animation = true,
-      -- insert_at_start = true,
-      -- …etc.
-    },
-  },
-    {
+	{
+		"romgrk/barbar.nvim",
+		dependencies = {
+			"lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
+			"nvim-tree/nvim-web-devicons", -- OPTIONAL: for file icons
+		},
+		init = function()
+			vim.g.barbar_auto_setup = false
+		end,
+		opts = {
+			-- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
+			-- animation = true,
+			-- insert_at_start = true,
+			-- …etc.
+		},
+	},
+	{
 		"mg979/vim-visual-multi",
 	},
-    {
+	{
 		"folke/todo-comments.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		opts = {
 			-- options here...
 		},
 	},
-    { -- Adds git related signs to the gutter, as well as utilities for managing changes
+	{ -- Adds git related signs to the gutter, as well as utilities for managing changes
 		"lewis6991/gitsigns.nvim",
 		opts = {
 			signs = {
@@ -34,14 +37,31 @@ return {
 			},
 		},
 	},
-    "hrsh7th/nvim-cmp", -- Autocompletion plugin
+	{
+		"f-person/git-blame.nvim",
+		-- load the plugin at startup
+		event = "VeryLazy",
+		-- Because of the keys part, you will be lazy loading this plugin.
+		-- The plugin wil only load once one of the keys is used.
+		-- If you want to load the plugin at startup, add something like event = "VeryLazy",
+		-- or lazy = false. One of both options will work.
+		opts = {
+			-- your configuration comes here
+			-- for example
+			enabled = true, -- if you want to enable the plugin
+			message_template = " <summary> • <date> • <author> • <<sha>>", -- template for the blame message, check the Message template section for more options
+			date_format = "%m-%d-%Y %H:%M:%S", -- template for the date, check Date format section for more options
+			virtual_text_column = 1, -- virtual text start column, check Start virtual text at column section for more options
+		},
+	},
+	"hrsh7th/nvim-cmp", -- Autocompletion plugin
 	"hrsh7th/cmp-nvim-lsp", -- LSP source for nvim-cmp
 	"hrsh7th/cmp-buffer", -- Buffer source for nvim-cmp
 	"hrsh7th/cmp-path", -- Path source for nvim-cmp
 	"hrsh7th/cmp-cmdline", -- Cmdline source for nvim-cmp
 	"L3MON4D3/LuaSnip", -- Snippet engine
 	"saadparwaiz1/cmp_luasnip", -- Snippet source for nvim-cmp
-    { -- Fuzzy Finder (files, lsp, etc)
+	{ -- Fuzzy Finder (files, lsp, etc)
 		"nvim-telescope/telescope.nvim",
 		event = "VimEnter",
 		branch = "0.1.x",
@@ -66,7 +86,7 @@ return {
 			{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
 		},
 	},
-    {
+	{
 		"windwp/nvim-autopairs",
 		config = function()
 			require("nvim-autopairs").setup({
@@ -95,3 +115,4 @@ return {
 		},
 	},
 }
+
