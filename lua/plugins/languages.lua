@@ -1,9 +1,9 @@
 return {
-    { -- Highlight, edit, and navigate code
+	{ -- Highlight, edit, and navigate code
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		opts = {
-			ensure_installed = { "bash", "c", "diff", "html", "lua", "luadoc", "markdown", "vim", "vimdoc" },
+			ensure_installed = { "typescript", "go" },
 			-- Autoinstall languages that are not installed
 			auto_install = true,
 			highlight = {
@@ -20,13 +20,13 @@ return {
 			require("nvim-treesitter.configs").setup(opts)
 		end,
 	},
-    {
+	{
 		"olrtg/nvim-emmet",
 		config = function()
 			vim.keymap.set({ "n", "v" }, "<leader>xe", require("nvim-emmet").wrap_with_abbreviation)
 		end,
 	},
-    { -- LSP Configuration & Plugins
+	{ -- LSP Configuration & Plugins
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			-- Automatically install LSPs and related tools to stdpath for Neovim
@@ -158,7 +158,7 @@ return {
 			})
 		end,
 	},
-    "nvim-lua/plenary.nvim",
+	"nvim-lua/plenary.nvim",
 	{
 		"jose-elias-alvarez/null-ls.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
@@ -172,5 +172,5 @@ return {
 		end,
 	},
 	{ "luckasRanarison/tailwind-tools.nvim" },
-
 }
+

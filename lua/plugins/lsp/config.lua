@@ -2,6 +2,16 @@ local cmp = require("cmp")
 local lspconfig = require("lspconfig")
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
+local border = {
+	{ "🭽", "FloatBorder" },
+	{ "▔", "FloatBorder" },
+	{ "🭾", "FloatBorder" },
+	{ "▕", "FloatBorder" },
+	{ "🭿", "FloatBorder" },
+	{ "▁", "FloatBorder" },
+	{ "🭼", "FloatBorder" },
+	{ "▏", "FloatBorder" },
+}
 
 cmp.setup({
 	snippet = {
@@ -27,6 +37,7 @@ cmp.setup({
 local handlers = {
 	["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
 		update_in_insert = true,
+		border = border,
 	}),
 }
 
@@ -101,7 +112,7 @@ lspconfig.tsserver.setup({
 
 -- setup tailwind lsp
 lspconfig.tailwindcss.setup({
-	cmd = { "tailwindcss-language-server", "--stdio" }
+	cmd = { "tailwindcss-language-server", "--stdio" },
 })
 
 -- setup lsp for c/c++
@@ -183,4 +194,4 @@ lspconfig.emmet_language_server.setup({
 		--- @type table<string, string> [Emmet Docs](https://docs.emmet.io/customization/snippets/#variables)
 		variables = {},
 	},
-})  
+})
