@@ -1,60 +1,37 @@
-require("config.options")
-require("config.keymaps")
+vim.g.base46_cache = vim.fn.stdpath "data" .. "/nvchad/base46/"
+vim.g.mapleader = " "
 
--- Bootstrap lazy.nvim
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-	vim.fn.system({
-		"git",
-		"clone",
-		"--filter=blob:none",
-		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable", -- latest stable release
-		lazypath,
-	})
+-- bootstrap lazy and all plugins
+local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
+
+if not vim.uv.fs_stat(lazypath) then
+  local repo = "https://github.com/folke/lazy.nvim.git"
+  vim.fn.system { "git", "clone", "--filter=blob:none", repo, "--branch=stable", lazypath }
 end
+
 vim.opt.rtp:prepend(lazypath)
 
--- Setup lazy.nvim and install plugins
+local lazy_config = require "configs.lazy"
+
+-- load plugins
 require("lazy").setup({
-	spec = {
-		{
-			import = "plugins",
-		},
-	},
-})
+  {
+    "NvChad/NvChad",
+    lazy = false,
+    branch = "v2.5",
+    import = "nvchad.plugins",
+  },
 
--- Set the colorscheme
-vim.cmd("colorscheme rose-pine")
+  { import = "plugins" },
+}, lazy_config)
 
-require("plugins.lsp.config")
+-- load theme
+dofile(vim.g.base46_cache .. "defaults")
+dofile(vim.g.base46_cache .. "statusline")
 
--- lspconfig.vtsls.setup{
---   capabilities = capabilities,
---   settings = {},
--- }
-require("mini.move").setup()
--- Configure Neo-tree
-require("neo-tree").setup({
-	-- Neo-tree configuration
-	close_if_last_window = true,
-	filesystem = {
-		follow_current_file = true, -- Automatically open the tree when entering a new buffer
-		visible = false,
-		filtered_items = {
-			visible = true,
-			show_hidden_count = true,
-			hide_dotfiles = false,
-		},
-	},
-	window = {
-		width = 30,
-		position = "left",
-		mappings = {
-			["<space>"] = "none", -- Disable space keybinding
-		},
-	},
-})
+require "options"
+require "nvchad.autocmds"
 
--- Open Neo-tree automatically on startup
-vim.cmd("autocmd VimEnter * Neotree show")
+vim.schedule(function()
+  require "mappings"
+end)
