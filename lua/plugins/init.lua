@@ -7,16 +7,12 @@ return {
 
   -- These are some examples, uncomment them if you want to see them work!
   {
-    "neovim/nvim-lspconfig",
-    config = function()
-      require "configs.lspconfig"
-    end,
-  },
-  {
 		"mg979/vim-visual-multi",
+    lazy = false
 	},
 	{
 		"folke/todo-comments.nvim",
+    lazy = false,
 		dependencies = { "nvim-lua/plenary.nvim" },
 		opts = {
 			-- options here...
@@ -24,6 +20,7 @@ return {
 	},
 	{ -- Adds git related signs to the gutter, as well as utilities for managing changes
 		"lewis6991/gitsigns.nvim",
+    lazy = false,
 		opts = {
 			signs = {
 				add = { text = "+" },
@@ -36,6 +33,7 @@ return {
 	},
 	{
 		"f-person/git-blame.nvim",
+    lazy = false,
 		-- load the plugin at startup
 		event = "VeryLazy",
 		-- Because of the keys part, you will be lazy loading this plugin.
