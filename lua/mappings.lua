@@ -1,4 +1,4 @@
-require "nvchad.mappings"
+require("nvchad.mappings")
 
 -- add yours here
 
@@ -11,3 +11,6 @@ map("i", "jk", "<ESC>")
 
 map("n", "F", ":Fzf files<CR>", { noremap = true, silent = true })
 map("n", "B", ":Fzf buffers<CR>", { noremap = true, silent = true })
+
+-- map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
+map("n", "<leader>ca", vim.lsp.buf.code_action, { noremap = true, silent = true })
