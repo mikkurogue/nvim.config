@@ -56,5 +56,7 @@ require("neo-tree").setup({
 	},
 })
 
+require("lualine").setup()
+
 -- Open Neo-tree automatically on startup
 vim.cmd("autocmd VimEnter * Neotree show")
