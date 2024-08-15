@@ -1,14 +1,13 @@
 {
   "extras": [
     "lazyvim.plugins.extras.coding.mini-comment",
-    "lazyvim.plugins.extras.lang.angular",
     "lazyvim.plugins.extras.ui.edgy",
     "lazyvim.plugins.extras.ui.mini-indentscope",
     "lazyvim.plugins.extras.util.startuptime"
   ],
   "news": {
     "NEWS.md": "6520",
-    "doc/news.txt": "24447"
+    "doc/news.txt": "24450"
   },
   "version": 6
 }
