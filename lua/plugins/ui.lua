@@ -8,6 +8,11 @@ return {
 		enabled = true,
         disabled_filetypes = { 'NVimTree' }
 	},
+    {
+        "dgagn/diagflow.nvim",
+        event = 'LspAttach',
+        opts = {}
+    },
 	-- messages, cmdline and the popupmenu
 	{
 		"folke/noice.nvim",
