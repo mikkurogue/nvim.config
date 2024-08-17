@@ -28,11 +28,15 @@ vim.opt.wildignore:append({ "*/node_modules/*" })
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.splitkeep = "cursor"
+-- vim.opt.guicursor = "n-v-c-i:block"
+--
 
+vim.o.guicursor = "i:block,r-cr-o:hor20,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor"
+
+--
 -- Add asterisks in block comments
 vim.opt.formatoptions:append({ "r" })
 
 vim.diagnostic.config({
   virtual_text = false,
 })
-

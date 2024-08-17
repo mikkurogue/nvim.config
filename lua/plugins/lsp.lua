@@ -19,7 +19,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = {
-      inlay_hints = { enabled = true },
+      -- inlay_hints = { enabled = true },
       ---@type lspconfig.options
       servers = {
         cssls = {},
@@ -35,26 +35,26 @@ return {
           single_file_support = false,
           settings = {
             typescript = {
-              inlayHints = {
-                includeInlayParameterNameHints = "literal",
-                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-                includeInlayFunctionParameterTypeHints = true,
-                includeInlayVariableTypeHints = false,
-                includeInlayPropertyDeclarationTypeHints = true,
-                includeInlayFunctionLikeReturnTypeHints = true,
-                includeInlayEnumMemberValueHints = true,
-              },
+              --              inlayHints = {
+              -- includeInlayParameterNameHints = "literal",
+              -- includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+              -- includeInlayFunctionParameterTypeHints = true,
+              -- includeInlayVariableTypeHints = false,
+              -- includeInlayPropertyDeclarationTypeHints = true,
+              -- includeInlayFunctionLikeReturnTypeHints = true,
+              -- includeInlayEnumMemberValueHints = true,
+              --            },
             },
             javascript = {
-              inlayHints = {
-                includeInlayParameterNameHints = "all",
-                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-                includeInlayFunctionParameterTypeHints = true,
-                includeInlayVariableTypeHints = true,
-                includeInlayPropertyDeclarationTypeHints = true,
-                includeInlayFunctionLikeReturnTypeHints = true,
-                includeInlayEnumMemberValueHints = true,
-              },
+              --          inlayHints = {
+              -- includeInlayParameterNameHints = "all",
+              -- includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+              -- includeInlayFunctionParameterTypeHints = true,
+              -- includeInlayVariableTypeHints = true,
+              -- includeInlayPropertyDeclarationTypeHints = true,
+              -- includeInlayFunctionLikeReturnTypeHints = true,
+              -- includeInlayEnumMemberValueHints = true,
+              --        },
             },
           },
         },
@@ -128,12 +128,11 @@ return {
       setup = {},
     },
   },
-  {
-    "nvim-cmp",
-    dependencies = { "hrsh7th/cmp-emoji" },
-    opts = function(_, opts)
-      table.insert(opts.sources, { name = "emoji" })
-    end,
-  },
+  --  {
+  --  "nvim-cmp",
+  --dependencies = { "hrsh7th/cmp-emoji" },
+  --    opts = function(_, opts)
+  --    table.insert(opts.sources, { name = "emoji" })
+  --    end,
+  --},
 }
-
