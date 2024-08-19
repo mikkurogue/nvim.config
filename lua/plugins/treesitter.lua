@@ -8,6 +8,10 @@ return {
 			"lua",
 			"vim",
 			"typescript",
+			"javascript",
+			"tsx",
+			"json",
+			"graphql",
 			-- add more arguments for adding more treesitter parsers
 		},
 	},
