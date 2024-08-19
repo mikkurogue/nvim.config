@@ -29,7 +29,8 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.splitkeep = "cursor"
 -- vim.opt.guicursor = "n-v-c-i:block"
---
+
+vim.g.lazyvim_prettier_needs_config = false
 
 vim.o.guicursor = "i:block,r-cr-o:hor20,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor"
 
