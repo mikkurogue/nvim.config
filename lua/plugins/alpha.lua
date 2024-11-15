@@ -22,10 +22,10 @@ return {
 						desc = "Disable status, tablines, and cmdheight for alpha",
 						callback = function(event)
 							if
-								(
-									(event.event == "User" and event.file == "AlphaReady")
-									or (event.event == "BufWinEnter" and vim.bo[event.buf].filetype == "alpha")
-								) and not vim.g.before_alpha
+									(
+										(event.event == "User" and event.file == "AlphaReady")
+										or (event.event == "BufWinEnter" and vim.bo[event.buf].filetype == "alpha")
+									) and not vim.g.before_alpha
 							then
 								vim.g.before_alpha = {
 									showtabline = vim.opt.showtabline:get(),
@@ -34,14 +34,14 @@ return {
 								}
 								vim.opt.showtabline, vim.opt.laststatus, vim.opt.cmdheight = 0, 0, 0
 							elseif
-								vim.g.before_alpha
-								and event.event == "BufWinEnter"
-								and vim.bo[event.buf].buftype ~= "nofile"
+									vim.g.before_alpha
+									and event.event == "BufWinEnter"
+									and vim.bo[event.buf].buftype ~= "nofile"
 							then
 								vim.opt.laststatus, vim.opt.showtabline, vim.opt.cmdheight =
-									vim.g.before_alpha.laststatus,
-									vim.g.before_alpha.showtabline,
-									vim.g.before_alpha.cmdheight
+										vim.g.before_alpha.laststatus,
+										vim.g.before_alpha.showtabline,
+										vim.g.before_alpha.cmdheight
 								vim.g.before_alpha = nil
 							end
 						end,
@@ -55,14 +55,14 @@ return {
 							local should_skip
 							local lines = vim.api.nvim_buf_get_lines(0, 0, 2, false)
 							if
-								vim.fn.argc() > 0 -- don't start when opening a file
-								or #lines > 1 -- don't open if current buffer has more than 1 line
-								or (#lines == 1 and lines[1]:len() > 0) -- don't open the current buffer if it has anything on the first line
-								or #vim.tbl_filter(function(bufnr)
+									vim.fn.argc() > 0             -- don't start when opening a file
+									or #lines > 1                 -- don't open if current buffer has more than 1 line
+									or (#lines == 1 and lines[1]:len() > 0) -- don't open the current buffer if it has anything on the first line
+									or #vim.tbl_filter(function(bufnr)
 										return vim.bo[bufnr].buflisted
 									end, vim.api.nvim_list_bufs())
-									> 1 -- don't open if any listed buffers
-								or not vim.o.modifiable -- don't open if not modifiable
+									> 1           -- don't open if any listed buffers
+									or not vim.o.modifiable -- don't open if not modifiable
 							then
 								should_skip = true
 							else
@@ -157,6 +157,10 @@ return {
 			"⠀⠀⠀⠀⠈⣿⡍⣿⣿⢻⣿⣿⠇⣾⣿⣿⣿⣿⣿⠢⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣇⠈⣿⣿⣿⣿⣿⣿",
 			"⠀⠀⠀⠀⠀⢻⡇⣿⣿⠘⣿⣿⢰⣿⣿⣿⣿⣿⣿⡇⠀⢻⢢⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣞⣿⣿⣿⢿⣿⡆⠸⣿⣿⣿⣿⣿",
 			"⠀⠀⠀⠀⠀⢸⠗⠿⣿⣦⢹⡏⠰⣿⣿⣿⣿⣿⣿⣷⠀⠈⣆⡿⣛⢑⠦⣄⣀⠀⠀⠀⠀⣀⡴⣞⣿⡻⢿⣿⡿⣺⢵⠿⡄⢻⣿⣿⣿⣿",
+			"                                                  ",
+			"                                                  ",
+			"                    Perrrrrrkele                  ",
+			"                                                  ",
 		}
 		dashboard.section.header.opts.hl = "DashboardHeader"
 		dashboard.section.footer.opts.hl = "DashboardFooter"
