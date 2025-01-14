@@ -9,6 +9,8 @@ return {
 	-- import/override with your plugins folder
 	{ import = "astrocommunity.recipes.telescope-nvchad-theme" },
 	{ import = "astrocommunity.colorscheme.catppuccin" },
+	{ import = "astrocommunity.colorscheme.gruvbox-baby" },
+	{ import = "astrocommunity.colorscheme.oxocarbon-nvim" },
 	{ import = "astrocommunity.diagnostics.trouble-nvim" },
 	{ import = "astrocommunity.utility.hover-nvim" },
 	-- { import = "astrocommunity.scrolling.mini-animate" },
