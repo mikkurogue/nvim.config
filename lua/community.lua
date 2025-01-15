@@ -13,6 +13,9 @@ return {
 	{ import = "astrocommunity.colorscheme.oxocarbon-nvim" },
 	{ import = "astrocommunity.diagnostics.trouble-nvim" },
 	{ import = "astrocommunity.utility.hover-nvim" },
+	{ import = "astrocommunity.diagnostics.tiny-inline-diagnostic-nvim" },
+	{ import = "astrocommunity.diagnostics.lsp_lines-nvim" },
+	{ import = "astrocommunity.keybinding.nvcheatsheet-nvim" },
 	-- { import = "astrocommunity.scrolling.mini-animate" },
 	-- { import = "astrocommunity.lsp.lsp-signature-nvim" },
 }
