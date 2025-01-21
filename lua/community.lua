@@ -18,6 +18,7 @@ return {
 	{ import = "astrocommunity.keybinding.nvcheatsheet-nvim" },
 	{ import = "astrocommunity.completion.copilot-lua" },
 	{ import = "astrocommunity.completion.copilot-cmp" },
+	{ import = "astrocommunity.bars-and-lines.lualine-nvim" },
 	-- { import = "astrocommunity.scrolling.mini-animate" },
 	-- { import = "astrocommunity.lsp.lsp-signature-nvim" },
 }
