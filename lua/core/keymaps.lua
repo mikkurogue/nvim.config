@@ -30,35 +30,7 @@ map("n", "<leader>lD", "<cmd>Telescope diagnostics<cr>", {
     desc = "Show All Diagnostics"
 })
 
--- toggle lua.plugins.colorscheme
-local themes = { "tokyonight", "catppuccin", "nightfox", "rose-pine", "carbonfox" }
-
-map("n", "<leader>th", function()
-    local pickers = require("telescope.pickers")
-    local finders = require("telescope.finders")
-    local actions = require("telescope.actions")
-    local action_state = require("telescope.actions.state")
-    local conf = require("telescope.config").values
-
-    pickers.new({}, {
-        prompt_title = "Select Colorscheme",
-        finder = finders.new_table(themes),
-        sorter = conf.generic_sorter({}),
-        attach_mappings = function(_, map)
-            map("i", "<CR>", function(bufnr)
-                local selection = action_state.get_selected_entry()
-                actions.close(bufnr)
-                vim.cmd("colorscheme " .. selection[1])
-                require("core.theme").save_theme(selection[1])
-            end)
-            return true
-        end
-    }):find()
-end, {
-    noremap = true,
-    silent = true,
-    desc = "Select a theme"
-})
+vim.keymap.set("n", "<leader>th", ":Telescope themes<CR>", { noremap = true, silent = true, desc = "Theme Switcher" })
 
 map("n", "<leader>w", ":w<CR>", {
     noremap = true,
