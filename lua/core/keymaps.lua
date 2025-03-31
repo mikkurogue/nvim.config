@@ -76,13 +76,19 @@ map("i", "<C-s>", "<Esc>:w<CR>", {
     silent = true,
     desc = "Save from insert mode and back to normal"
 })
-
 -- eg binds
 map("n", "<leader>ff", ":Telescope find_files<CR>", {
     noremap = true,
     silent = true,
     desc = "Find files with telescope"
 })
+
+map("n", "<leader>fb", ":Telescope buffers<CR>", {
+    noremap = true,
+    silent = true,
+    desc = "Find files with telescope"
+})
+
 map("n", "<leader>tf", ":ToggleTerm<CR>", {
     noremap = true,
     silent = true,
@@ -93,3 +99,11 @@ map("n", "<leader>gg", ":LazyGit<CR>", {
     silent = true,
     desc = "Open Git interface"
 })
+
+-- Close current buffer
+map("n", "<leader>c", "<cmd>bd<cr>", {
+    noremap = true,
+    silent = true,
+    desc = "Close Current Buffer"
+})
+
