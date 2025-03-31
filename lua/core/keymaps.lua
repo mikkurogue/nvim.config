@@ -31,7 +31,7 @@ map("n", "<leader>lD", "<cmd>Telescope diagnostics<cr>", {
 })
 
 -- toggle lua.plugins.colorscheme
-local themes = {"tokyonight", "catppuccin", "nightfox", "rose-pine", "carbonfox"}
+local themes = { "tokyonight", "catppuccin", "nightfox", "rose-pine", "carbonfox" }
 
 map("n", "<leader>th", function()
     local pickers = require("telescope.pickers")
@@ -128,4 +128,5 @@ end)
 local map = vim.keymap.set
 
 -- Enhanced Go to Definition
-map("n", "gd", "<cmd>Telescope lsp_definitions<cr>", { noremap = true, silent = true, desc = "Go to Definition (Telescope)" })
+map("n", "gd", "<cmd>Telescope lsp_definitions<cr>",
+    { noremap = true, silent = true, desc = "Go to Definition (Telescope)" })
