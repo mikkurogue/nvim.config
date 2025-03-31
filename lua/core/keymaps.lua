@@ -83,6 +83,13 @@ map("n", "<leader>ff", ":Telescope find_files<CR>", {
     desc = "Find files with telescope"
 })
 
+-- Live Grep (Search for words in project)
+map("n", "<leader>fw", "<cmd>Telescope live_grep<cr>", {
+    noremap = true,
+    silent = true,
+    desc = "Live Grep"
+})
+
 map("n", "<leader>fb", ":Telescope buffers<CR>", {
     noremap = true,
     silent = true,
