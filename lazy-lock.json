@@ -50,6 +50,7 @@
   "oxocarbon.nvim": { "branch": "main", "commit": "004777819ba294423b638a35a75c9f0c7be758ed" },
   "plenary.nvim": { "branch": "master", "commit": "857c5ac632080dba10aae49dba902ce3abf91b35" },
   "resession.nvim": { "branch": "master", "commit": "cc819b0489938d03e4f3532a583354f0287c015b" },
+  "rose-pine": { "branch": "main", "commit": "7d1b5c7dcd274921f0f58e90a8bf935f6a95fbf3" },
   "smart-splits.nvim": { "branch": "master", "commit": "4a231987665d3c6e02ca88833d050e918afe3e1e" },
   "snacks.nvim": { "branch": "main", "commit": "5eac729fa290248acfe10916d92a5ed5e5c0f9ed" },
   "tiny-inline-diagnostic.nvim": { "branch": "main", "commit": "5d168a2826fb90691f674e81bd5c1dfa6d931c61" },
