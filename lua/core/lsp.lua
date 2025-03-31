@@ -2,7 +2,7 @@ local M = {}
 
 function M.setup()
     local lspconfig = require("lspconfig")
-    local servers = {"ts_ls", "rust_analyzer", "lua_ls", "pyright", "gopls", "eslint", "prettier"} -- Add more as needed
+    local servers = {"ts_ls", "rust_analyzer", "lua_ls", "pyright", "gopls", "eslint"} -- Add more as needed
 
     require("mason").setup()
     require("mason-lspconfig").setup({

@@ -12,28 +12,60 @@ wk.setup({
     }
 })
 
-wk.register({
-    ["<leader>"] = {
-        t = {
-            name = "Theme"
-        },
-        f = {
-            name = "Find",
-            t = {"<cmd>Telescope find_files<cr>", "Find Files"}
-        },
-        g = {
-            name = "Git",
-            s = {"<cmd>LazyGit<cr>", "Lazygit"}
-        },
-        l = {
-            name = "LSP",
-            a = {vim.lsp.buf.code_action, "Code Action"},
-            r = {vim.lsp.buf.rename, "Rename Symbol"},
-            f = {vim.lsp.buf.format, "Format Code"}
-        },
-        q = {"<cmd>q<cr>", "Quit"},
-        w = {"<cmd>w<cr>", "Save"}
-    }
+wk.add({{
+    "<leader><leader>f",
+    group = "Find"
 }, {
+    "<leader><leader>ft",
+    "<cmd>Telescope find_files<cr>",
+    desc = "Find Files"
+}, {
+    "<leader><leader>g",
+    group = "Git"
+}, {
+    "<leader><leader>gs",
+    "<cmd>LazyGit<cr>",
+    desc = "Lazygit"
+}, {
+    "<leader><leader>l",
+    group = "LSP"
+}, {
+    "<leader><leader>la",
+    vim.lsp.buf.code_action,
+    desc = "Code Action"
+}, {
+    "<leader><leader>lf",
+    vim.lsp.buf.rename,
+    desc = "Format Code"
+}, {
+    "<leader><leader>lr",
+    vim.lsp.buf.rename,
+    desc = "Rename Symbol"
+}, {
+    "<leader><leader>q",
+    "<cmd>q<cr>",
+    desc = "Quit"
+}, {
+    "<leader><leader>t",
+    group = "Theme"
+}, {
+    "<leader><leader>w",
+    "<cmd>w<cr>",
+    desc = "Save"
+}}, {
     prefix = "<leader>"
 })
+
+-- {
+--     { "<leader><leader>f", group = "Find" },
+--     { "<leader><leader>ft", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
+--     { "<leader><leader>g", group = "Git" },
+--     { "<leader><leader>gs", "<cmd>LazyGit<cr>", desc = "Lazygit" },
+--     { "<leader><leader>l", group = "LSP" },
+--     { "<leader><leader>la", vim.lsp.buf.code_action, desc = "Code Action" },
+--     { "<leader><leader>lf", vim.lsp.buf.rename, desc = "Format Code" },
+--     { "<leader><leader>lr", vim.lsp.buf.rename, desc = "Rename Symbol" },
+--     { "<leader><leader>q", "<cmd>q<cr>", desc = "Quit" },
+--     { "<leader><leader>t", group = "Theme" },
+--     { "<leader><leader>w", "<cmd>w<cr>", desc = "Save" },
+--   }
