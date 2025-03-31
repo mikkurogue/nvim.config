@@ -123,3 +123,9 @@ end)
 vim.keymap.set("n", "<leader>Sf", function()
     require("persistence").select()
 end)
+
+
+local map = vim.keymap.set
+
+-- Enhanced Go to Definition
+map("n", "gd", "<cmd>Telescope lsp_definitions<cr>", { noremap = true, silent = true, desc = "Go to Definition (Telescope)" })
