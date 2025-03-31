@@ -114,3 +114,12 @@ map("n", "<leader>c", "<cmd>bd<cr>", {
     desc = "Close Current Buffer"
 })
 
+-- load the session for the current directory
+vim.keymap.set("n", "<leader>Ss", function()
+    require("persistence").load()
+end)
+
+-- select a session to load
+vim.keymap.set("n", "<leader>Sf", function()
+    require("persistence").select()
+end)
