@@ -10,6 +10,9 @@ end, {
     desc = "Code actions"
 })
 
+map("n", "<leader>/", "gcc", { noremap = true, silent = true, desc = "Toggle comment line" })
+map("v", "<leader>/", "gcc", { noremap = true, silent = true, desc = "Toggle comment block" })  
+
 -- Show diagnostics for current line
 map("n", "<leader>ld", function()
     vim.diagnostic.open_float(nil, {
@@ -80,4 +83,3 @@ end)
 map("n", "<leader>Sf", function()
     require("persistence").select()
 end)
-
