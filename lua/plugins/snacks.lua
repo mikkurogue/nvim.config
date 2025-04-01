@@ -7,9 +7,6 @@ return {
         -- your configuration comes here
         -- or leave it empty to use the default settings
         -- refer to the configuration section below
-        bigfile = {
-            enabled = false
-        },
         dashboard = {
             enabled = true,
             preset = {
@@ -41,27 +38,57 @@ return {
                      "⠀⠀⠀⠀⠀⢻⡇⣿⣿⠘⣿⣿⢰⣿⣿⣿⣿⣿⣿⡇⠀⢻⢢⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣞⣿⣿⣿⢿⣿⡆⠸⣿⣿⣿⣿⣿",
                      "⠀⠀⠀⠀⠀⢸⠗⠿⣿⣦⢹⡏⠰⣿⣿⣿⣿⣿⣿⣷⠀⠈⣆⡿⣛⢑⠦⣄⣀⠀⠀⠀⠀⣀⡴⣞⣿⡻⢿⣿⡿⣺⢵⠿⡄⢻⣿⣿⣿⣿"},
                     "\n")
-            }
+            },
+            sections = {{
+                section = "header"
+            }, {
+                icon = " ",
+                title = "Keymaps",
+                section = "keys",
+                indent = 2,
+                padding = 1
+            }, {
+                icon = " ",
+                title = "Recent Files",
+                section = "recent_files",
+                indent = 2,
+                padding = 1
+            }, {
+                icon = " ",
+                title = "Projects",
+                section = "projects",
+                indent = 2,
+                padding = 1
+            }, {
+                section = "startup"
+            }}
+
+        },
+        statuscolumn = {
+            enabled = true
         },
         explorer = {
             enabled = true
         },
-        indent = {
+        scroll = {
             enabled = true
         },
-        input = {
-            enabled = true
-        },
-        picker = {
+        scope = {
             enabled = true
         },
         notifier = {
             enabled = true,
             timeout = 3000
         },
-        scroll = {
+        picker = {
             enabled = true
-        }
+        },
+        indent = {
+            enabled = true
+        },
+        bigfile = {
+            enabled = true
+        } -- check if this needs to be disabled
     },
     keys = {{
         "<leader>h",
