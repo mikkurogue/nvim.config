@@ -44,10 +44,17 @@ map("n", "<leader>w", ":w<CR>", {
     silent = true,
     desc = "Save current buffer"
 })
-map("n", "<leader>q", ":q<CR>", {
+
+map("n", "<leader>q", ":q!<CR>", {
     noremap = true,
     silent = true,
     desc = "Quit"
+})
+
+map("n", "<leader>Q", ":qa!<CR>", {
+    noremap = true,
+    silent = true,
+    desc = "Quit all"
 })
 
 map("i", "<C-s>", "<Esc>:w<CR>", {
@@ -61,6 +68,7 @@ map("n", "<leader>tf", ":ToggleTerm<CR>", {
     silent = true,
     desc = "Toggle floating terminal"
 })
+
 map("n", "<leader>gg", ":LazyGit<CR>", {
     noremap = true,
     silent = true,
