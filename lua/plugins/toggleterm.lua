@@ -3,9 +3,9 @@ return {
     version = "*",
     config = function()
         require("toggleterm").setup({
-            direction = "float",
+            -- direction = "float",
             float_opts = {
-                border = "double"
+                border = "single"
             }
         })
     end,
