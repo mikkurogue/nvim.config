@@ -68,7 +68,7 @@ return {
             enabled = true
         },
         explorer = {
-            enabled = true
+            enabled = true,
         },
         scroll = {
             enabled = true
@@ -81,7 +81,8 @@ return {
             timeout = 3000
         },
         picker = {
-            enabled = true
+            enabled = true,
+            exclude = {"node_modules", "dist", "out", "target", "release"}
         },
         indent = {
             enabled = true
