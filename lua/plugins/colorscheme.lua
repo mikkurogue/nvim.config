@@ -1,20 +1,9 @@
-return { { "folke/tokyonight.nvim" }, {
+return {{"folke/tokyonight.nvim"}, {
     "catppuccin/nvim",
     name = "catppuccin"
-}, { "EdenEast/nightfox.nvim" }, {
+}, {"EdenEast/nightfox.nvim"}, {
     "rose-pine/neovim",
     name = "rose-pine"
-},
-    {
-        "rebelot/kanagawa.nvim"
-    },
-    {
-        "kepano/flexoki"
-    },
-    {
-        "ellisonleao/gruvbox.nvim"
-    },
-    {
-        "scottmckendry/cyberdream.nvim"
-    }
-}
+}, {"rebelot/kanagawa.nvim"}, {"kepano/flexoki"}, {"ellisonleao/gruvbox.nvim"}, {"scottmckendry/cyberdream.nvim"},
+        {"navarasu/onedark.nvim"}, {"Mofiqul/vscode.nvim"}, {"olimorris/onedarkpro.nvim"},
+        {"nyoom-engineering/oxocarbon.nvim"}}
