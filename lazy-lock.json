@@ -34,6 +34,7 @@
   "snipe.nvim": { "branch": "main", "commit": "f43a1f0090de03d48ce5c55df630c1aa4d0b4291" },
   "telescope-themes": { "branch": "main", "commit": "9b7c368b83b82b53c0a6e9e977f8329e5f1fe269" },
   "telescope.nvim": { "branch": "master", "commit": "a4ed82509cecc56df1c7138920a1aeaf246c0ac5" },
+  "tiny-inline-diagnostic.nvim": { "branch": "main", "commit": "15becb1c2a4b90321214d3db45fe36829fc48b8d" },
   "todo-comments.nvim": { "branch": "main", "commit": "304a8d204ee787d2544d8bc23cd38d2f929e7cc5" },
   "toggleterm.nvim": { "branch": "main", "commit": "50ea089fc548917cc3cc16b46a8211833b9e3c7c" },
   "tokyonight.nvim": { "branch": "main", "commit": "057ef5d260c1931f1dffd0f052c685dcd14100a3" },

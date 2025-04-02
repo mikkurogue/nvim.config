@@ -10,8 +10,20 @@ end, {
     desc = "Code actions"
 })
 
-map("n", "<leader>/", "gcc", { noremap = true, silent = true, desc = "Toggle comment line" })
-map("v", "<leader>/", "gcc", { noremap = true, silent = true, desc = "Toggle comment block" })  
+map("n", "<Esc>", ":noh<CR>", {
+    silent = true
+})
+
+map("n", "<leader>/", "gcc", {
+    noremap = true,
+    silent = true,
+    desc = "Toggle comment line"
+})
+map("v", "<leader>/", "gcc", {
+    noremap = true,
+    silent = true,
+    desc = "Toggle comment block"
+})
 
 -- Show diagnostics for current line
 map("n", "<leader>ld", function()
