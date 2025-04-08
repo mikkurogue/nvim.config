@@ -1,8 +1,8 @@
-return {{
+return { {
     'hrsh7th/nvim-cmp',
-    dependencies = {'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path',
-                    'hrsh7th/cmp-nvim-lsp-signature-help', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip',
-                    'onsails/lspkind.nvim'},
+    dependencies = { 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path',
+        'hrsh7th/cmp-nvim-lsp-signature-help', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip',
+        'onsails/lspkind.nvim' },
     config = function()
         local cmp = require('cmp')
         local luasnip = require('luasnip')
@@ -29,7 +29,7 @@ return {{
                 })
             },
             formatting = {
-                fields = {"kind", "abbr", "menu"},
+                fields = { "kind", "abbr", "menu" },
                 format = function(entry, vim_item)
                     -- Get the icon from lspkind
                     local kind_icon = lspkind.symbolic(vim_item.kind, {
@@ -69,7 +69,7 @@ return {{
                     return vim_item
                 end
             },
-            sources = cmp.config.sources({{
+            sources = cmp.config.sources({ {
                 name = 'nvim_lsp',
                 priority = 1000
             }, {
@@ -84,7 +84,7 @@ return {{
             }, {
                 name = 'path',
                 priority = 600
-            }}),
+            } }),
             mapping = cmp.mapping.preset.insert({
                 ['<C-Space>'] = cmp.mapping.complete(),
                 ['<CR>'] = cmp.mapping.confirm({
@@ -98,23 +98,17 @@ return {{
                     else
                         fallback()
                     end
-                end, {'i', 's'})
+                end, { 'i', 's' })
             })
         })
     end
 }, {
     'neovim/nvim-lspconfig',
-    dependencies = {'hrsh7th/cmp-nvim-lsp'},
+    dependencies = { 'hrsh7th/cmp-nvim-lsp' },
     config = function()
         -- This will be used in your mason-lspconfig setup
         local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
         -- Your existing LSP config goes here, but with capabilities added
     end
-}, {
-    "windwp/nvim-ts-autotag",
-    dependencies = "nvim-treesitter/nvim-treesitter",
-    config = function()
-        require('nvim-ts-autotag').setup()
-    end
-}}
+}, }
