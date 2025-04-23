@@ -1,1 +1,1 @@
-vim.cmd("colorscheme nushell")
+vim.cmd("colorscheme gruvbox")

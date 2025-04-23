@@ -2,5 +2,6 @@ return { require("plugins.lazygit"), require("plugins.toggleterm"), require("plu
     require("plugins.conform"), require("plugins.treesitter"), require("plugins.snacks"),
     require("plugins.colorscheme"), require("plugins.lualine"), require("plugins.trouble"),
     require("plugins.which_key"), require("plugins.snipe"), require("plugins.comment"),
-    require("plugins.persistence"), require("plugins.bufferline"), require("plugins.autopairs"), require("plugins.nu") }
+    require("plugins.persistence"), require("plugins.bufferline"), require("plugins.autopairs"), require("plugins.nu"),
+    require("plugins.crates") }
 -- require("plugins.telescope"),
