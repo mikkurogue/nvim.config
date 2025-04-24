@@ -87,15 +87,6 @@ return {
         picker = {
             enabled = true,
             exclude = { "node_modules", "dist", "out", "target", "release" },
-            sources = {
-                explorer = {
-                    layout = {
-                        layout = {
-                            position = "right"
-                        }
-                    }
-                }
-            }
         },
         indent = {
             enabled = true
