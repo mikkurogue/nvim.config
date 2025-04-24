@@ -91,6 +91,8 @@ return {
         },
         toggle = {
             enabled = true,
+            which_key = true,
+            notify = true,
         },
         win = {
             enabled = true,

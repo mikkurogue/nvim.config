@@ -2,7 +2,7 @@ require("core.options")
 require("core.keymaps")
 require("core.autocmds")
 require("lazy_setup")
-
+require("core.which-key")
 require("current-theme")
 require("core.lsp").setup()
 require("core.lualine").setup()
