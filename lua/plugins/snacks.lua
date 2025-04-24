@@ -87,6 +87,13 @@ return {
         picker = {
             enabled = true,
             exclude = { "node_modules", "dist", "out", "target", "release" },
+
+        },
+        toggle = {
+            enabled = true,
+        },
+        win = {
+            enabled = true,
         },
         indent = {
             enabled = true
