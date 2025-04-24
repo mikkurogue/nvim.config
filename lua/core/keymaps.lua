@@ -87,13 +87,6 @@ map("n", "<leader>gg", ":LazyGit<CR>", {
     desc = "Open Git interface"
 })
 
--- Close current buffer
-map("n", "<leader>c", "<cmd>bd<cr>", {
-    noremap = true,
-    silent = true,
-    desc = "Close Current Buffer"
-})
-
 -- load the session for the current directory
 map("n", "<leader>Ss", function()
     require("persistence").load()
