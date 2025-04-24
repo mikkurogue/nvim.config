@@ -65,7 +65,11 @@ return {
 
         },
         statuscolumn = {
-            enabled = true
+            enabled = true,
+            folds = {
+                open = false,
+                -- git_hl = true,
+            },
         },
         explorer = {
             enabled = true,
@@ -82,7 +86,16 @@ return {
         },
         picker = {
             enabled = true,
-            exclude = { "node_modules", "dist", "out", "target", "release" }
+            exclude = { "node_modules", "dist", "out", "target", "release" },
+            sources = {
+                explorer = {
+                    layout = {
+                        layout = {
+                            position = "right"
+                        }
+                    }
+                }
+            }
         },
         indent = {
             enabled = true
