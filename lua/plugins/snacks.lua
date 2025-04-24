@@ -67,7 +67,7 @@ return {
         statuscolumn = {
             enabled = true,
             folds = {
-                open = false,
+                open = true,
                 -- git_hl = true,
             },
         },
