@@ -4,7 +4,7 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.termguicolors = true
-
+vim.opt.clipboard = "unnamedplus"
 vim.opt.foldenable = true                            -- make sure folds are enabled
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()" -- use treesitter for folding
 vim.opt.foldcolumn = "auto:1"
@@ -15,7 +15,7 @@ vim.opt.foldlevel = 99
 vim.opt.fillchars = {
     foldopen = '',
     foldclose = '',
-    fold = ' ',  -- filler, optional
+    fold = ' ',    -- filler, optional
     foldsep = ' ', -- separator column filler, optional
 }
 
