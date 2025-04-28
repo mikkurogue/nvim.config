@@ -1,114 +1,110 @@
-return { {
-    'hrsh7th/nvim-cmp',
-    dependencies = { 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path',
-        'hrsh7th/cmp-nvim-lsp-signature-help', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip',
-        'onsails/lspkind.nvim' },
-    config = function()
-        local cmp = require('cmp')
-        local luasnip = require('luasnip')
-        local lspkind = require('lspkind')
+return {
+    {
+        "saghen/blink.compat",
+        -- use the latest release, via version = '*', if you also use the latest release for blink.cmp
+        version = "*",
+        -- lazy.nvim will automatically load the plugin when it's required by blink.cmp
+        lazy = true,
+        -- make sure to set opts so that lazy.nvim calls blink.compat's setup
+        opts = {},
+    },
+    {
+        "saghen/blink.cmp",
+        -- optional: provides snippets for the snippet source
+        dependencies = {
+            "rafamadriz/friendly-snippets",
+            "moyiz/blink-emoji.nvim",
+            "ray-x/cmp-sql",
+        },
 
-        cmp.setup({
-            snippet = {
-                expand = function(args)
-                    luasnip.lsp_expand(args.body)
-                end
+        -- use a release tag to download pre-built binaries
+        version = "1.*",
+        -- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
+        -- build = 'cargo build --release',
+        -- If you use nix, you can build from source using latest nightly rust with:
+        -- build = 'nix run .#build-plugin',
+
+        ---@module 'blink.cmp'
+        ---@type blink.cmp.Config
+        opts = {
+            -- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
+            -- 'super-tab' for mappings similar to vscode (tab to accept)
+            -- 'enter' for enter to accept
+            -- 'none' for no mappings
+            --
+            -- All presets have the following mappings:
+            -- C-space: Open menu or open docs if already open
+            -- C-n/C-p or Up/Down: Select next/previous item
+            -- C-e: Hide menu
+            -- C-k: Toggle signature help (if signature.enabled = true)
+            --
+            -- See :h blink-cmp-config-keymap for defining your own keymap
+            keymap = {
+                preset = "default",
+                ["<C-Z>"] = { "accept", "fallback" },
             },
-            window = {
-                completion = cmp.config.window.bordered({
-                    winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
-                    border = 'rounded',
-                    scrollbar = false,
-                    col_offset = -3,
-                    side_padding = 1
-                }),
-                documentation = cmp.config.window.bordered({
-                    winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
-                    border = 'rounded',
-                    scrollbar = false
-                })
+
+            appearance = {
+                -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
+                -- Adjusts spacing to ensure icons are aligned
+                nerd_font_variant = "mono",
             },
-            formatting = {
-                fields = { "kind", "abbr", "menu" },
-                format = function(entry, vim_item)
-                    -- Get the icon from lspkind
-                    local kind_icon = lspkind.symbolic(vim_item.kind, {
-                        mode = 'symbol'
-                    })
-                    vim_item.kind = kind_icon .. " " .. vim_item.kind
 
-                    -- Set a fixed width for the completion text
-                    vim_item.abbr = string.sub(vim_item.abbr, 1, 30)
+            -- (Default) Only show the documentation popup when manually triggered
+            completion = { documentation = { auto_show = true } },
+            signature = { enabled = true },
 
-                    -- Extract the module path for imports
-                    local menu_text = ""
+            -- Default list of enabled providers defined so that you can extend it
+            -- elsewhere in your config, without redefining it, due to `opts_extend`
+            sources = {
+                default = { "lsp", "path", "snippets", "buffer", "emoji", "sql" },
+                providers = {
+                    emoji = {
+                        module = "blink-emoji",
+                        name = "Emoji",
+                        score_offset = 15,        -- Tune by preference
+                        opts = { insert = true }, -- Insert emoji (default) or complete its name
+                        should_show_items = function()
+                            return vim.tbl_contains(
+                            -- Enable emoji completion only for git commits and markdown.
+                            -- By default, enabled for all file-types.
+                                { "gitcommit", "markdown" },
+                                vim.o.filetype
+                            )
+                        end,
+                    },
+                    sql = {
+                        -- IMPORTANT: use the same name as you would for nvim-cmp
+                        name = "sql",
+                        module = "blink.compat.source",
 
-                    -- From the detail field (often contains module info)
-                    if entry.completion_item.detail and entry.completion_item.detail ~= "" then
-                        menu_text = entry.completion_item.detail
-                    end
+                        -- all blink.cmp source config options work as normal:
+                        score_offset = -3,
 
-                    -- Or from documentation if available
-                    if menu_text == "" and entry.completion_item.documentation then
-                        local doc = entry.completion_item.documentation
-                        if type(doc) == "table" and doc.value then
-                            menu_text = doc.value
-                        elseif type(doc) == "string" then
-                            menu_text = doc
-                        end
-                    end
-
-                    -- Clean up and truncate the menu text
-                    menu_text = menu_text:gsub("\n", " ")
-                    if menu_text:len() > 40 then
-                        menu_text = menu_text:sub(1, 37) .. "..."
-                    end
-
-                    vim_item.menu = menu_text
-
-                    return vim_item
-                end
+                        -- this table is passed directly to the proxied completion source
+                        -- as the `option` field in nvim-cmp's source config
+                        --
+                        -- this is NOT the same as the opts in a plugin's lazy.nvim spec
+                        opts = {},
+                        should_show_items = function()
+                            return vim.tbl_contains(
+                            -- Enable emoji completion only for git commits and markdown.
+                            -- By default, enabled for all file-types.
+                                { "sql" },
+                                vim.o.filetype
+                            )
+                        end,
+                    },
+                },
             },
-            sources = cmp.config.sources({ {
-                name = 'nvim_lsp',
-                priority = 1000
-            }, {
-                name = 'nvim_lsp_signature_help',
-                priority = 900
-            }, {
-                name = 'luasnip',
-                priority = 800
-            }, {
-                name = 'buffer',
-                priority = 700
-            }, {
-                name = 'path',
-                priority = 600
-            } }),
-            mapping = cmp.mapping.preset.insert({
-                ['<C-Space>'] = cmp.mapping.complete(),
-                ['<CR>'] = cmp.mapping.confirm({
-                    select = true
-                }),
-                ['<Tab>'] = cmp.mapping(function(fallback)
-                    if cmp.visible() then
-                        cmp.select_next_item()
-                    elseif luasnip.expand_or_jumpable() then
-                        luasnip.expand_or_jump()
-                    else
-                        fallback()
-                    end
-                end, { 'i', 's' })
-            })
-        })
-    end
-}, {
-    'neovim/nvim-lspconfig',
-    dependencies = { 'hrsh7th/cmp-nvim-lsp' },
-    config = function()
-        -- This will be used in your mason-lspconfig setup
-        local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-        -- Your existing LSP config goes here, but with capabilities added
-    end
-}, }
+            -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
+            -- You may use a lua implementation instead by using `implementation = "lua"` or fallback to the lua implementation,
+            -- when the Rust fuzzy matcher is not available, by using `implementation = "prefer_rust"`
+            --
+            -- See the fuzzy documentation for more information
+            -- fuzzy = { implementation = "prefer_rust_with_warning" },
+        },
+        opts_extend = { "sources.default" },
+    },
+}

@@ -74,9 +74,9 @@ return {
         explorer = {
             enabled = true,
         },
-        scroll = {
-            enabled = true
-        },
+        -- scroll = {
+        --     enabled = true
+        -- },
         scope = {
             enabled = true
         },
@@ -89,11 +89,11 @@ return {
             exclude = { "node_modules", "dist", "out", "target", "release" },
 
         },
-        toggle = {
-            enabled = true,
-            which_key = true,
-            notify = true,
-        },
+        -- toggle = {
+        --     enabled = true,
+        --     which_key = true,
+        --     notify = true,
+        -- },
         win = {
             enabled = true,
         },
