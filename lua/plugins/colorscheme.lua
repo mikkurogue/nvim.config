@@ -1,12 +1,11 @@
 return {
-    { "folke/tokyonight.nvim",             lazy = true },
-    { "catppuccin/nvim",                   name = "catppuccin",  lazy = true },
+    { "folke/tokyonight.nvim",            lazy = true },
+    { "catppuccin/nvim",                  name = "catppuccin", lazy = true },
     { "EdenEast/nightfox.nvim" },
-    { "rose-pine/neovim",                  name = "rose-pine",   lazy = true },
-    { "rebelot/kanagawa.nvim",             lazy = true },
-    { "ellisonleao/gruvbox.nvim",          lazy = true },
-    { "scottmckendry/cyberdream.nvim",     lazy = true },
-    { "nyoom-engineering/oxocarbon.nvim",  lazy = true },
+    { "rose-pine/neovim",                 name = "rose-pine",  lazy = true },
+    { "rebelot/kanagawa.nvim",            lazy = true },
+    { "ellisonleao/gruvbox.nvim",         lazy = true },
+    { "nyoom-engineering/oxocarbon.nvim", lazy = true },
     {
         "sainnhe/edge",
         lazy = true,
