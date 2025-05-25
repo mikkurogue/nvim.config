@@ -2,7 +2,7 @@ local M = {}
 
 function M.setup()
     local lspconfig = require("lspconfig")
-    local servers = { "ts_ls", "rust_analyzer", "lua_ls", "gopls", "eslint" }
+    local servers = { "ts_ls", "rust_analyzer", "lua_ls", "gopls", "eslint", "biome", "harper_ls" }
 
     -- Get blink.cmp capabilities
     local capabilities = require("blink.cmp").get_lsp_capabilities(vim.lsp.protocol.make_client_capabilities())
