@@ -1,7 +1,7 @@
 vim.g.mapleader = " "
 local map = vim.keymap.set
 
-vim.keymap.set("n", "<leader>vs", ":vsplit<CR>", { desc = "Vertical split" }) 
+vim.keymap.set("n", "<leader>vs", ":vsplit<CR>", { desc = "Vertical split" })
 
 -- Code actions (Quick fixes) on <leader>la
 map("n", "<leader>la", function()
@@ -83,7 +83,7 @@ map("n", "<leader>tf", ":ToggleTerm<CR>", {
     desc = "Toggle floating terminal"
 })
 
-map("n", "<leader>gg", ":LazyGit<CR>", {
+map("n", "<leader>gg", ":Gitui<CR>", {
     noremap = true,
     silent = true,
     desc = "Open Git interface"
