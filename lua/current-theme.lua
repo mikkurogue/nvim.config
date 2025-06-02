@@ -1,1 +1,2 @@
-vim.cmd("colorscheme oxidize")
+vim.cmd("colorscheme tokyonight")
+

@@ -83,7 +83,7 @@ map("n", "<leader>tf", ":ToggleTerm<CR>", {
     desc = "Toggle floating terminal"
 })
 
-map("n", "<leader>gg", ":LazyGit<CR>", {
+map("n", "<leader>gg", ":Gitui<CR>", {
     noremap = true,
     silent = true,
     desc = "Open Git interface"
