@@ -4,7 +4,6 @@ return {
     { "EdenEast/nightfox.nvim" },                               -- Includes nightfox, dayfox, duskfox, etc.
     { "rose-pine/neovim",                name = "rose-pine" },  -- Calming pastel palette
     { "rebelot/kanagawa.nvim" },                                -- Japanese-inspired aesthetic, warm & soft
-    { "ellisonleao/gruvbox.nvim" },                             -- Classic, contrasty, works well with Rust
     { "nyoom-engineering/oxocarbon.nvim" },                     -- IBM Carbon inspired, bold and modern
     { "sainnhe/edge" },                                         -- Minimal, supports light/dark & high contrast
     { "Shatur/neovim-ayu" },                                    -- Ayu Light, Mirage, and Dark — very readable
@@ -20,6 +19,7 @@ return {
     { "rose-pine/neovim",                name = "rose-pine" },  -- Good for meditative coding sessions (already in your list)
     { "kvrohit/mellow.nvim" },                                  -- Minimalist, gentle palette, easy on the eyes
     { "Iron-E/nvim-highlite" },                                 -- Experimental theme engine, allows custom syntax coloring per language
+    { "ellisonleao/gruvbox.nvim",        priority = 1000,    config = true, },
     {
         "olimorris/onedarkpro.nvim",
         name = "onedarkpro",
