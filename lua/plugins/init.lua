@@ -1,4 +1,5 @@
-return { require("plugins.lazygit"), require("plugins.toggleterm"), require("plugins.lsp"), require("plugins.cmp"),
+return { require("plugins.fold-imports"), require("plugins.lazygit"), require("plugins.toggleterm"), require(
+    "plugins.lsp"), require("plugins.cmp"),
     require("plugins.conform"), require("plugins.treesitter"), require("plugins.snacks"),
     require("plugins.colorscheme"), require("plugins.lualine"), require("plugins.trouble"),
     require("plugins.snipe"), require("plugins.comment"),
