@@ -12,28 +12,20 @@ wk.setup({
     }
 })
 
-wk.add({{
+wk.add({ {
     "<leader><leader>f",
     group = "Find"
-}, {
-    "<leader><leader>ft",
-    "<cmd>Telescope find_files<cr>",
-    desc = "Find Files"
 }, {
     "<leader><leader>g",
     group = "Git"
 }, {
-    "<leader><leader>gs",
+    "<leader><leader>gl",
     "<cmd>LazyGit<cr>",
     desc = "Lazygit"
 }, {
     "<leader><leader>l",
     group = "LSP"
-}, {
-    "<leader><leader>la",
-    vim.lsp.buf.code_action,
-    desc = "Code Action"
-}, {
+},{
     "<leader><leader>lf",
     vim.lsp.buf.rename,
     desc = "Format Code"
@@ -52,6 +44,7 @@ wk.add({{
     "<leader><leader>w",
     "<cmd>w<cr>",
     desc = "Save"
-}}, {
+} }, {
     prefix = "<leader>"
 })
+

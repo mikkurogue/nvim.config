@@ -5,7 +5,7 @@ vim.keymap.set("n", "<leader>vs", ":vsplit<CR>", { desc = "Vertical split" })
 
 -- Code actions (Quick fixes) on <leader>la
 map("n", "<leader>la", function()
-    vim.lsp.buf.code_action()
+    require("actions-preview").code_actions()
 end, {
     noremap = true,
     silent = true,
