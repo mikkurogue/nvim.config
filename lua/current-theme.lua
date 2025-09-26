@@ -1,1 +1,1 @@
-vim.cmd("colorscheme darkrose")
+vim.cmd("colorscheme rusty")
