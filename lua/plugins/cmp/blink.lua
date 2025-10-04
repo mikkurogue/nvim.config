@@ -18,12 +18,12 @@ return {
         },
         ["<C-j>"] = {
           "accept", -- First try to accept any selected completion item from blink menu
-          function(cmp) -- Then try sidekick NES
-            if require("sidekick").nes_jump_or_apply() then
-              return true -- stop the chain if sidekick handled it
-            end
-            -- If sidekick didn't handle it, continue to next in chain
-          end,
+          -- function(cmp) -- Then try sidekick NES
+          --   if require("sidekick").nes_jump_or_apply() then
+          --     return true -- stop the chain if sidekick handled it
+          --   end
+          --   -- If sidekick didn't handle it, continue to next in chain
+          -- end,
           function(cmp) -- Then try copilot if visible
             local ok, copilot = pcall(require, "copilot.suggestion")
             if ok and copilot.is_visible() then
