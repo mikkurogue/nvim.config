@@ -1,4 +1,5 @@
 return {
+  { "Badacadabra/vim-archery" },
   { "armannikoyan/rusty" },
   {
     "water-sucks/darkrose.nvim",
