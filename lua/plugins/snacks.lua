@@ -51,15 +51,10 @@ return {
                 section = "recent_files",
                 indent = 2,
                 padding = 1
-            }, {
-                icon = " ",
-                title = "Projects",
-                section = "projects",
-                indent = 2,
-                padding = 1
-            }, {
-                section = "startup"
-            } }
+            },
+                {
+                    section = "startup"
+                } }
 
         },
         statuscolumn = {
