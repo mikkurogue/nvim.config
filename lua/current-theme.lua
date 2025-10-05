@@ -1,1 +1,1 @@
-vim.cmd("colorscheme archery")
+vim.cmd("colorscheme gruvbox")

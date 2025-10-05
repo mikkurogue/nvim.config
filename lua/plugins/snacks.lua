@@ -98,7 +98,19 @@ return {
             }
         },
         indent = {
-            enabled = true
+            enabled = true,
+            only_current = true,
+            only_scope = true,
+            chunk = {
+                enabled = true,
+                char = {
+                    horizontal = '─',
+                    vertical = '│',
+                    corner_top = '╭',
+                    corner_bottom = '╰',
+                    arrow = '─',
+                },
+            }
         },
         bigfile = {
             enabled = true

@@ -1,5 +1,24 @@
 return {
-  { "Badacadabra/vim-archery" },
+  {
+    "Badacadabra/vim-archery",
+    config = function()
+      -- Custom color overrides for vim-archery theme
+      vim.api.nvim_create_autocmd("ColorScheme", {
+        pattern = "archery",
+        callback = function()
+          -- Change MatchParen (bracket match) to a softer blue-gray instead of bright white
+          vim.api.nvim_set_hl(0, "MatchParen", { fg = "#25272C", bg = "#81A3CF", bold = true })
+
+          -- Change Cursor to a more visible but not too bright amber color
+          vim.api.nvim_set_hl(0, "Cursor", { fg = "#25272C", bg = "#D4A655" })
+
+          -- Change the indent scope (active block indicator) to a darker gray for less eye strain
+          -- Softer contrast for colorblind-friendly viewing
+          vim.api.nvim_set_hl(0, "SnacksIndentScope", { fg = "#4B5563" })
+        end,
+      })
+    end,
+  },
   { "armannikoyan/rusty" },
   {
     "water-sucks/darkrose.nvim",
