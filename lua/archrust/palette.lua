@@ -22,11 +22,11 @@ local palette = {
   bg3 = "#383838",
   bg4 = "#454545",
   
-  -- Foreground colors
-  fg0 = "#e8e8e8",
-  fg1 = "#d4d4d4",
-  fg2 = "#b8b8b8",
-  fg3 = "#9a9a9a",
+  -- Foreground colors (Gruvbox-inspired off-white)
+  fg0 = "#ebdbb2",
+  fg1 = "#d5c4a1",
+  fg2 = "#bdae93",
+  fg3 = "#a89984",
   
   -- Grays
   gray0 = "#7a7a7a",
